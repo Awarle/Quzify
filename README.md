@@ -1,92 +1,99 @@
-# Groupe de gueneb_a 1053544
+# Quizify
+# Objectifs 🎯
+Consolider toutes les notions vues pendant les deux semaines :
+Structures fondamentales (variables, conditions, boucles, fonctions)
+Programmation orientée objet (classes, héritage, polymorphisme, propriété)
+Gestion avancée de fichiers (CSV, JSON)
+Gestion des exceptions et erreurs
+Algorithmes simples (tri, recherche, etc.)
+Favoriser la modularité et la réutilisation du code
 
+# Consignes 📌
+Vous allez développer une application interactive de génération de quiz. L’utilisateur pourra répondre à des quiz thématiques, suivre sa progression, et ses résultats seront sauvegardés automatiquement.
 
+🔑 Fonction clé : Utilisez la fonction input() pour créer un prompt interactif, clair et intuitif pour l'utilisateur.
 
-## Getting started
+🔧 Fonctions attendues (Base obligatoire)
+1. Chargement et affichage d’un quiz
+Charger les questions depuis un fichier JSON
+Afficher les questions une par une et attendre la réponse utilisateur
+2. Calcul automatique du score
+Calculer le résultat du quiz
+Afficher un résumé clair : score obtenu, réponses correctes/incorrectes
+3. Sauvegarde des résultats
+Enregistrer automatiquement le score et la progression dans un fichier utilisateurs.json
+4. Menu interactif
+Menu simple (jouer, voir résultats, quitter)
+5. Gestion d’erreurs et exceptions
+Traitement des erreurs utilisateurs (entrées incorrectes, fichiers absents, etc.)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+# 🌟 Bonus (pour se challenger davantage)
+Ajouter un timer pour limiter le temps de réponse à chaque question
+Charger les questions depuis une API externe (par exemple Open Trivia Database)
+Générer des quiz personnalisés en fonction des préférences utilisateur
+Implémenter un scoreboard global (CSV) avec classement
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+# 🚩 Bonus de Bonus (niveau avancé)
+Développement d'une interface graphique avec Tkinter ou d’une interface CLI stylisée avec Rich
+Générer un système de recommandations intelligentes (questions les plus souvent ratées)
+Création d’un système de badges/récompenses utilisateur
 
-## Add your files
+# 📂 Structure du projet
+quiz_project/
+├── main.py         # Point d'entrée du programme
+├── quiz.py         # Classes Quiz, Question, etc.
+├── user.py         # Gestion des utilisateurs et scores
+├── utils.py         # Fonctions utilitaires
+├── data/
+│  ├── questions.json    # Banque des questions
+│  └── utilisateurs.json  # Progression des utilisateurs
+└── bonus/
+  ├── timer.py       # Gestion du temps (bonus)
+  ├── api.py        # Requête API externe (bonus)
+  └── scoreboard.csv    # Tableau des scores global (bonus)
+  
+# 📁 Exemples de fichiers
+# ✅ Exemple de questions.json
+[
+ {
+  "id": 1,
+  "theme": "Python",
+  "question": "Quelle est la sortie de print(type(3)) ?",
+  "options": ["<class 'int'>", "<class 'str'>", "<class 'float'>", "<class 'bool'>"],
+  "reponse": "<class 'int'>"
+ },
+ {
+  "id": 2,
+  "theme": "Histoire",
+  "question": "En quelle année Christophe Colomb a-t-il découvert l'Amérique ?",
+  "options": ["1492", "1620", "1776", "1945"],
+  "reponse": "1492"
+ }
+]
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# ✅ Exemple de utilisateurs.json
+{
+ "Alice": {
+  "scores": [
+   {"theme": "Python", "score": 80, "date": "2024-04-15"},
+   {"theme": "Histoire", "score": 60, "date": "2024-04-15"}
+  ]
+ },
+ "Bob": {
+  "scores": [
+   {"theme": "Python", "score": 100, "date": "2024-04-15"}
+  ]
+ }
+}
 
-```
-cd existing_repo
-git remote add origin https://rendu-git.etna-alternance.net/module-9947/activity-53322/group-1053544.git
-git branch -M main
-git push -uf origin main
-```
+# ✅ Exemple de scoreboard.csv (bonus)
+Utilisateur,Theme,Score,Date
+Alice,Python,80,2024-04-15
+Alice,Histoire,60,2024-04-15
+Bob,Python,100,2024-04-15
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://rendu-git.etna-alternance.net/module-9947/activity-53322/group-1053544/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+# 🚀 Conclusion et conseils
+Commencez par réaliser les fonctionnalités obligatoires, testez-les, puis attaquez les bonus.
+Travaillez par modules (fichiers séparés) pour garder un code clair et modulaire.
+Utilisez Git tout au long pour sauvegarder régulièrement votre avancement.
+Bon courage et surtout : prenez plaisir à coder ! 🎉
